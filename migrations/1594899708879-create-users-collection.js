@@ -1,5 +1,5 @@
 "use strict";
-const { client } = require("../model/connect");
+const { client } = require("../model/client");
 
 const dbName = process.env.DATABASE_NAME;
 

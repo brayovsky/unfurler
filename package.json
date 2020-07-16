@@ -2,7 +2,8 @@
   "name": "unfurler",
   "version": "0.0.1",
   "scripts": {
-    "migrate": "node -r dotenv/config node_modules/migrate/bin/migrate"
+    "migrate": "node -r dotenv/config node_modules/migrate/bin/migrate",
+    "start": "node -r dotenv/config index.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
