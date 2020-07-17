@@ -1,16 +1,23 @@
 {
   "name": "unfurler",
   "version": "0.0.1",
+  "main": "index.js",
   "scripts": {
-    "migrate": "node -r dotenv/config node_modules/migrate/bin/migrate",
-    "start": "node -r dotenv/config index.js"
+    "migrate": "npx -n '-r dotenv/config' migrate",
+    "start": "node -r dotenv/config index.js",
+    "start:dev": "nodemon -r dotenv/config index.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
     "mongodb": "^3.5.9"
   },
   "devDependencies": {
-    "migrate": "^1.7.0"
+    "husky": "^4.2.5",
+    "migrate": "^1.7.0",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5"
   }
 }

@@ -12,9 +12,13 @@ module.exports.up = function (next) {
 
     client
       .db(dbName)
-      .createCollection("users")
+      .collection("users")
+      .insertOne({
+        username: "test",
+        password: "7d0811c2e6297f702a0574fcd2598480",
+      })
       .then(() => {
-        console.log("Created users collection");
+        console.log("Inserted test");
         next();
       })
       .catch((err) => {
@@ -33,13 +37,13 @@ module.exports.down = function (next) {
 
     client
       .db(dbName)
-      .dropCollection("users")
-      .then((didDrop) => {
-        if (didDrop) {
-          console.log("Dropped collection users");
-        } else {
-          throw Error("Failed to drop collextion users");
-        }
+      .collection("users")
+      .deleteOne({
+        username: "test",
+        password: "7d0811c2e6297f702a0574fcd2598480",
+      })
+      .then(() => {
+        console.log("Removed test");
         next();
       })
       .catch((err) => {
