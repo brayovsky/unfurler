@@ -1,5 +1,5 @@
-"use strict";
-const { client } = require("../model/client");
+'use strict';
+const { client } = require('../model/client');
 
 const dbName = process.env.DATABASE_NAME;
 
@@ -12,9 +12,9 @@ module.exports.up = function (next) {
 
     client
       .db(dbName)
-      .createCollection("users")
+      .createCollection('users')
       .then(() => {
-        console.log("Created users collection");
+        console.log('Created users collection');
         next();
       })
       .catch((err) => {
@@ -33,12 +33,12 @@ module.exports.down = function (next) {
 
     client
       .db(dbName)
-      .dropCollection("users")
+      .dropCollection('users')
       .then((didDrop) => {
         if (didDrop) {
-          console.log("Dropped collection users");
+          console.log('Dropped collection users');
         } else {
-          throw Error("Failed to drop collextion users");
+          throw Error('Failed to drop collextion users');
         }
         next();
       })

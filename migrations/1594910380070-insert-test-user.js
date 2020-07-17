@@ -1,5 +1,5 @@
-"use strict";
-const { client } = require("../model/client");
+'use strict';
+const { client } = require('../model/client');
 
 const dbName = process.env.DATABASE_NAME;
 
@@ -12,13 +12,13 @@ module.exports.up = function (next) {
 
     client
       .db(dbName)
-      .collection("users")
+      .collection('users')
       .insertOne({
-        username: "test",
-        password: "7d0811c2e6297f702a0574fcd2598480",
+        username: 'test',
+        password: '7d0811c2e6297f702a0574fcd2598480',
       })
       .then(() => {
-        console.log("Inserted test");
+        console.log('Inserted test');
         next();
       })
       .catch((err) => {
@@ -37,13 +37,13 @@ module.exports.down = function (next) {
 
     client
       .db(dbName)
-      .collection("users")
+      .collection('users')
       .deleteOne({
-        username: "test",
-        password: "7d0811c2e6297f702a0574fcd2598480",
+        username: 'test',
+        password: '7d0811c2e6297f702a0574fcd2598480',
       })
       .then(() => {
-        console.log("Removed test");
+        console.log('Removed test');
         next();
       })
       .catch((err) => {
