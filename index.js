@@ -2,6 +2,7 @@ const express = require('express');
 const paths = require('./lib/paths');
 const config = require('./config');
 const authenticate = require('./lib/users/authenticate');
+const parseUrl = require('./lib/urls/parse');
 const { client } = require('./model/client');
 
 const app = express();
@@ -15,5 +16,7 @@ app.get(paths.root, (req, res) => {
 app.post(paths.login, (req, res) => {
   authenticate(req, res, client, db);
 });
+
+app.get(paths.parseUrl, parseUrl);
 
 app.listen(config.port, () => console.log(`listening on port ${config.port}`));
