@@ -5,7 +5,8 @@
   "scripts": {
     "migrate": "npx -n '-r dotenv/config' migrate",
     "start": "npm run migrate && node -r dotenv/config index.js",
-    "start:dev": "nodemon -r dotenv/config index.js"
+    "start:dev": "nodemon -r dotenv/config index.js",
+    "create-env": "printenv > .env"
   },
   "dependencies": {
     "@google-cloud/translate": "^6.0.2",
