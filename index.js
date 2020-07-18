@@ -21,7 +21,7 @@ app.get(paths.root, (req, res) => {
   res.send('Welcome to the unfurler API');
 });
 
-app.post(paths.login, (req, res) => {
+app.get(paths.login, (req, res) => {
   authenticate(req, res, client, db);
 });
 
