@@ -13,7 +13,7 @@ const config = {
     secret,
   },
   production: {
-    port: process.env.PORT || 1337,
+    port: process.env.APP_PORT || 8080,
     apiPath,
     secret,
   },
