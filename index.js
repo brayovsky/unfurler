@@ -7,6 +7,7 @@ const parseUrl = require('./lib/urls/parse');
 const translate = require('./lib/urls/translate');
 const upload = require('./lib/files/upload');
 const download = require('./lib/files/download');
+const authorise = require('./lib/middleware/authorise');
 const { client } = require('./model/client');
 
 const app = express();
@@ -25,15 +26,15 @@ app.get(paths.login, (req, res) => {
   authenticate(req, res, client, db);
 });
 
-app.get(paths.parseUrl, parseUrl);
+app.get(paths.parseUrl, authorise, parseUrl);
 
-app.post(paths.translate, translate);
+app.post(paths.translate, authorise, translate);
 
-app.post(paths.upload, (req, res) => {
+app.post(paths.upload, authorise, (req, res) => {
   upload(req, res, client, db);
 });
 
-app.get(paths.download, (req, res) => {
+app.get(paths.download, authorise, (req, res) => {
   download(req, res, client, db);
 });
 
