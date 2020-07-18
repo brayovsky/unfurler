@@ -6,6 +6,7 @@ const authenticate = require('./lib/users/authenticate');
 const parseUrl = require('./lib/urls/parse');
 const translate = require('./lib/urls/translate');
 const upload = require('./lib/files/upload');
+const download = require('./lib/files/download');
 const { client } = require('./model/client');
 
 const app = express();
@@ -30,6 +31,10 @@ app.post(paths.translate, translate);
 
 app.post(paths.upload, (req, res) => {
   upload(req, res, client, db);
+});
+
+app.get(paths.download, (req, res) => {
+  download(req, res, client, db);
 });
 
 app.listen(config.port, () => console.log(`listening on port ${config.port}`));
