@@ -7,7 +7,7 @@ steps:
   args: ["run", "create-env"]
   env:
     - 'MONGODB_URL=${_MONGODB_URL}'
-    - 'DATABASE_NAME=${_DATABASE_NAME'
+    - 'DATABASE_NAME=${_DATABASE_NAME}'
     - 'NODE_ENV=${_NODE_ENV}'
     - 'APP_SECRET=${_APP_SECRET}'
     - 'GCP_PROJECT_ID=${_GCP_PROJECT_ID}' 
